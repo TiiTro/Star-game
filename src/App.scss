@@ -1,0 +1,80 @@
+@import 'Variables';
+
+.background{
+	box-sizing: border-box;
+	background: #0A122A;
+	width: 100vw;
+	height: 100vh;
+	margin: 0;
+	padding: 5% 20%;
+	//color: #FFFFFF;
+}
+
+.game {
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	width: 50vw;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: $light-green;
+	padding: 2% 5%;
+	border-radius: 5px;
+	
+}
+
+h1 {
+	font-family: 'Baloo Thambi', cursive;
+	color: $orange;
+}
+.button-container {
+	width: 100%;
+}
+
+.button{
+	background: $orange;
+	border: none;
+	height: 35px;
+	box-shadow: 0px 3px 5px rgba(10, 18, 42, .5);
+	color: #FFFFFF;
+	font-size: 20px;
+	width: 100%;
+	flex-basis: 100%;
+	flex-grow: 1;	
+}
+
+.button:focus,
+.button:hover,
+.button:active {
+	outline: none;
+	-webkit-transition: .1s;
+  transition: .1s;
+	
+}
+
+
+.button:hover {
+		transform: scale(1.03);
+		background: $orange-dark;
+}
+
+.button:active {
+		transform: scale(.97);
+		background: $orange-darkest;
+}
+
+.answer {
+	
+}
+
+.fa-star {
+  color:$stars;
+	width: 40px;
+	height: 40px;
+}
+
+
+
