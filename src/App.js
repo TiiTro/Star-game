@@ -2,12 +2,15 @@ import React, { Component } from 'react';
 import './App.scss';
 
 const Stars = (props) => {
+	const numberOfStars = 1 + Math.random()*9;
+
+	let stars = [];
+	for (let i = 0; i < numberOfStars; i ++) {
+		stars.push(<i key={i} className='fa fa-star'></i>)
+	}
 	return(
-		<div>
-			<i className='fa fa-star'></i>
-			<i className='fa fa-star'></i>
-			<i className='fa fa-star'></i>
-			<i className='fa fa-star'></i>
+		<div className='stars-container'>
+			{stars}
 		</div>
 	);
 }
@@ -22,7 +25,7 @@ const Button = (props) => {
 
 const Answer = (props) => {
 	return(
-		<div className='answer'>
+		<div className='answer-container'>
 			...	
 		</div>
 	);
@@ -30,10 +33,16 @@ const Answer = (props) => {
 
 const Numbers = (props) => {
 	return(
-		<div>
-			<span>1</span>
-			<span>2</span>
-			<span>3</span>
+		<div className='numbers-container'>
+			<span><p>1</p></span>
+			<span className='selected'><p>2</p></span>
+			<span className='used'><p>3</p></span>
+			<span><p>4</p></span>
+			<span><p>5</p></span>
+			<span><p>6</p></span>
+			<span><p>7</p></span>
+			<span><p>8</p></span>
+			<span><p>9</p></span>
 		</div>
 	);
 }
@@ -42,8 +51,8 @@ class Game extends React.Component {
 	render() {
 		return(
 			<div className='game'>
-				<div>
-					<h1>Play Nine</h1>
+				<h1>Play Nine</h1>
+				<div className='flex-row'>
 					<Stars />
 					<Button />
 					<Answer />
