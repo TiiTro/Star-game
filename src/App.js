@@ -26,7 +26,7 @@ const Button = (props) => {
 const Answer = (props) => {
 	return(
 		<div className='answer-container'>
-			...	
+			<span>5</span>
 		</div>
 	);
 }
@@ -34,18 +34,16 @@ const Answer = (props) => {
 const Numbers = (props) => {
 	return(
 		<div className='numbers-container'>
-			<span><p>1</p></span>
-			<span className='selected'><p>2</p></span>
-			<span className='used'><p>3</p></span>
-			<span><p>4</p></span>
-			<span><p>5</p></span>
-			<span><p>6</p></span>
-			<span><p>7</p></span>
-			<span><p>8</p></span>
-			<span><p>9</p></span>
+			{Numbers.list.map((number, i) => 
+				<span key={i}>
+					<p>{number}</p>
+				</span>
+			)}
 		</div>
 	);
 }
+
+Numbers.list = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 class Game extends React.Component {
 	render() {
