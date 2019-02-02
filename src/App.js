@@ -15,6 +15,7 @@ const Stars = (props) => {
 	);
 }
 
+
 const Button = (props) => {
 	return(
 		<div className='button-container'>
@@ -26,16 +27,24 @@ const Button = (props) => {
 const Answer = (props) => {
 	return(
 		<div className='answer-container'>
-			<span>5</span>
+			{props.selectedNumbers.map((number, i) => 
+				<span key={i}>{number}</span>
+			)}
 		</div>
 	);
 }
 
 const Numbers = (props) => {
+	const numberClassName = (number) => {
+		if (props.selectedNumbers.indexOf(number) >= 0) {
+			return 'selected';
+		}
+	}
 	return(
 		<div className='numbers-container'>
 			{Numbers.list.map((number, i) => 
-				<span key={i}>
+				<span key={i} className={numberClassName(number)}
+					onClick={() => props.selectNumber(number)}>
 					<p>{number}</p>
 				</span>
 			)}
@@ -45,7 +54,17 @@ const Numbers = (props) => {
 
 Numbers.list = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
+
 class Game extends React.Component {
+	state = {
+		selectedNumbers: [],
+	};
+
+	selectNumber = (clickedNumber) => {
+		this.setState(prevState => ({
+			selectedNumbers: prevState.selectedNumbers.concat(clickedNumber)
+		}))
+	}
 	render() {
 		return(
 			<div className='game'>
@@ -53,10 +72,11 @@ class Game extends React.Component {
 				<div className='flex-row'>
 					<Stars />
 					<Button />
-					<Answer />
+					<Answer selectedNumbers={this.state.selectedNumbers} />
 				</div>
 				<br />
-				<Numbers />
+				<Numbers selectedNumbers={this.state.selectedNumbers}
+						selectNumber={this.selectNumber}/>
 			</div>
 			
 		);

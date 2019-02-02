@@ -51,6 +51,9 @@ h1 {
 	flex-basis: 38%;
 }
 
+.stars-container {
+	padding-right: 1rem;
+}
 
 .button-container {
 	flex-grow: 0;
@@ -99,6 +102,20 @@ h1 {
 	margin: 5px;
 }
 
+.answer-container {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	padding-left: 1rem;
+
+	& > span {
+		font-size: 2rem;
+		color: $dark-grey;
+		margin: 5px;
+		justify-content: space-between;
+	}
+}
+
 .numbers-container {
 	display: flex;
 	flex-direction: row;
@@ -112,9 +129,9 @@ h1 {
 	& > span {
 		font-size: 2rem;
 		color: $dark-grey;
+		background: $green;
 		margin: 1%;
 		padding: auto, .4rem;
-		background: $light;
 		height: 98%;
 		flex-grow: 1;
 		text-align: center;
@@ -126,10 +143,18 @@ h1 {
 			padding-bottom: auto;
 			transform: translate(0, -30%);	
 		}
+
+		&:hover {
+			transform: scale(1.03);
+		}
+
+		&:active {
+			transform: scale(0.97);
+		}
 	}
 
 	& > .selected {
-		background: $green;
+		background: $dark-green;
 	}
 
 	& > .used {
